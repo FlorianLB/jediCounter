@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dao xmlns="http://jelix.org/ns/dao/1.0">
+    <datasources>
+        <primarytable name="jediCounter_already" realname="jediCounter_already" primarykey="id_user,id_counter" />
+    </datasources>
+    <record>
+        <property name="id_user" fieldname="id_user" datatype="int" required="true"/>
+        <property name="id_counter" fieldname="id_counter" datatype="int" required="true"/>
+    </record>
+</dao>

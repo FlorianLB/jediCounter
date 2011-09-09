@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://jelix.org/ns/module/1.0">
+    <info id="jediCounter@florianlb.fr" name="jediCounter" createdate="2011-09-06">
+        <version>1.0</version>
+        <label lang="en_EN">jediCounter</label>
+        <description lang="en_EN"><![CDATA[
+            jediCounter is a simple way to add a counter of any kind linked with a ressource of any kind (i.e. : like counter on a blog post,)
+        ]]></description>
+        <license URL="">All rights reserved</license>
+        <copyright>2011 Florian Lonqueu-Brochard</copyright>
+        <creator name="Florian Lonqueu-Brochard" active="true"/>
+    </info>
+    <dependencies>
+        <jelix minversion="1.2.*" maxversion="1.3.*"/>
+    </dependencies>
+</module>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dao xmlns="http://jelix.org/ns/dao/1.0">
+    <datasources>
+        <primarytable name="jedicounter" realname="jedicounter" primarykey="id_counter" />
+    </datasources>
+    <record>
+        <property name="id_counter" fieldname="id_counter" datatype="int" autoincrement="true"/>
+        <property name="scope" fieldname="scope" datatype="varchar" default="" maxlength="20"/>
+        <property name="value" fieldname="value" datatype="int" required="true" default="0"/>
+        <property name="subject_id" fieldname="subject_id" datatype="int" default=""/>
+    </record>
+    <factory>
+        
+        <method name="getCounter" type="selectfirst">
+            <parameter name="subject_id" />
+            <parameter name="scope" />
+            <conditions>
+                <eq property="subject_id" expr="$subject_id" />
+                <eq property="scope" expr="$scope" />
+            </conditions>
+        </method>
+        
+        <method name="incrementCounter" type="update">
+            <parameter name="subject_id" />
+            <parameter name="scope" />
+            <values>
+                <value property="value" expr="value + 1" />
+            </values>
+            <conditions>
+                <eq property="subject_id" expr="$subject_id" />
+                <eq property="scope" expr="$scope" />
+            </conditions>
+        </method>
+        
+        
+        <!--<method name="findByStage" type="select/selectfirst/delete/update/php">
+            <parameter name="" />
+            <values>
+                <value property="" value="" />
+            </values>
+            <conditions logic="and/or">
+                <eq property="" value="" />
+            </conditions>
+            <order>
+                <orderitem property="" way="asc/desc" />
+            </order>
+            <limit offset="" count=""/>
+            <body><![CDATA[
+            ]]></body>
+        </method>-->
+    </factory>
+</dao>
