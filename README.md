@@ -14,5 +14,5 @@ Utilisation
 
 class counterService
 
-    increment($subject_id, $scope)
+    increment($subject_id, $scope, $check_already = true)
     get($subject_id, $scope)

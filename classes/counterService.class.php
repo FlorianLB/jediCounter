@@ -27,7 +27,7 @@ class counterService{
      * Increment the counter, if it doesn't exist, create it
      * @return boolean    True if the counter have been incremented, false if it haven't
      */
-    public function increment($subject_id, $scope){
+    public function increment($subject_id, $scope, $check_already = true){
         
         //must be authenticated
         if(!jAuth::isConnected()){
@@ -49,13 +49,14 @@ class counterService{
             $dao->insert($record);
         }
         else{
-            if($this->alreadySubmitted($uid, $record->id_counter))
+            if($check_already && $this->alreadySubmitted($uid, $record->id_counter))
                 return false;
         
             $dao->incrementCounter($subject_id, $scope);
         }
         
-        $this->hasSubmitted($uid, $record->id_counter);
+        if($check_already)
+            $this->hasSubmitted($uid, $record->id_counter);
             
         return true;
         
